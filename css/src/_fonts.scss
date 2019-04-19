@@ -1,0 +1,40 @@
+
+// include our fonts
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,400,700);
+
+
+
+@font-face {
+    font-family: 'Officina Sans LT Book';
+    src: url('fonts/officina-sans-lt-book.eot?#iefix') format('embedded-opentype'),  url('fonts/officina-sans-lt-book.woff') format('woff'), url('fonts/officina-sans-lt-book.ttf')  format('truetype'), url('fonts/officina-sans-lt-book.svg#officina-sans-lt-book') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Officina Sans LT Bold';
+    src: url('fonts/officina-sans-lt-bold.eot?#iefix') format('embedded-opentype'),  url('fonts/officina-sans-lt-bold.woff') format('woff'), url('fonts/officina-sans-lt-bold.ttf')  format('truetype'), url('fonts/officina-sans-lt-bold.svg#officina-sans-lt-bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+// sans-serif mixin
+@mixin font-title {
+    font-family: "Officina Sans LT Bold", sans-serif;
+    font-weight: 400;
+}
+
+
+// sans-serif mixin
+@mixin font {
+    font-family: "Officina Sans LT Book", sans-serif;
+    font-weight: 400;
+}
+
+
+// bold face
+@mixin font-bold {
+    font-family: "Officina Sans LT Bold", sans-serif;
+}

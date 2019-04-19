@@ -1,0 +1,198 @@
+
+
+// color variables
+$yellow: #FBB040;
+$green: #7FBC42;
+$grey: #414042;
+$blue: #0081C3;
+$orange: #EC5946;
+
+
+@import "reset";
+
+@import "fonts";
+
+@import "mixins";
+
+@import "base";
+
+@import "grid";
+
+
+@mixin img-max-width {
+	max-width: 100%;
+}
+
+
+// background-container
+.container {
+	background: white;
+	padding-bottom: 40px;
+	max-width: 1150px;
+	margin: 0 auto;
+	box-shadow: 0 0 30px rgba( #666, .4 );
+
+	@include respond-to( 1220px ) {
+		padding-bottom: 20px;
+	}
+}
+
+
+
+// colors
+.bg-green {
+	background: $green;
+	color: white;
+	box-shadow: 0 10px 20px rgba( #666, .4 );
+
+	img { @include img-max-width; }
+}
+
+.bg-yellow {
+	padding: 10px;
+	background: $yellow;
+
+	img {
+		display: block;
+		margin: 0 auto;
+		@include img-max-width;
+	}
+}
+
+
+
+// wrap div
+.wrap {
+	max-width: 1150px;
+	margin: 0 auto;
+	position: relative;
+	@include clearfix;
+}
+
+
+
+header {
+	img {
+		display: block;
+		@include img-max-width;
+	}
+}
+
+
+
+.pad {
+	padding: 20px;
+
+	@include respond-to( 768px ) {
+		padding: 40px 60px;
+	}
+
+	&.no-top {
+		padding-top: 0;
+	}
+}
+
+
+
+.intro {
+	text-align: center;
+
+	h2 {
+		font-size: 2.4em;
+		color: $blue;
+		text-transform: uppercase;
+	}
+
+	p {
+		font-size: 1.2em;
+	}
+
+	@include respond-to( 768px ) {
+		padding: 0 100px;
+	}
+
+	@include respond-to( 1024px ) {
+		padding: 0 200px;
+	}
+}
+
+
+
+// project styles
+.projects {
+	@include clearfix;
+	
+	.third {
+		@include respond-to( 768px ) {
+			&:nth-child(4), &:nth-child(7), &:nth-child(10), &:nth-child(13), &:nth-child(16), &:nth-child(19), &:nth-child(22), &:nth-child(25), &:nth-child(28), &:nth-child(31), &:nth-child(34), &:nth-child(37), &:nth-child(40) {
+				clear: left;
+			}
+		}
+	}
+
+	.project-photo {
+		display: block;
+		height: 250px;
+		overflow: hidden;
+		margin-bottom: 10px; 
+	}
+}
+
+
+
+// footer styles
+.footer-bar {
+	color: $grey;
+	padding: 30px 20px 0;
+	font-size: .8em;
+
+	h2, h4 {
+		&, a {
+			color: $grey;
+		}
+
+		@include font-title;
+	}
+
+	h2 {
+		font-size: 3em;
+		@include respond-to( 768px ) { font-size: 3.5em; }
+	}
+
+	h4 {
+		font-size: 17px;
+		@include respond-to( 800px ) { font-size: 26px; }
+	}
+
+	.address {
+		@include font;
+		text-align: left;
+		font-size: 1.2em;
+		line-height: 1.5em;
+		color: $blue;
+
+		a {
+			color: $blue;
+		}
+	}
+
+	.phone {
+		font-size: 1.4em;
+	}
+}
+
+
+
+.fine-print {
+	padding: 40px 0 0;
+	font-size: .8em;
+	line-height: 1.3em;
+	text-align: left;
+	color: lighten( $grey, 10% );
+
+	img {
+		float: right;
+		margin: 0 0 15px 15px;
+	}
+}
+

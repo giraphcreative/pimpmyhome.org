@@ -1,0 +1,1 @@
+var set_project_photo_height=function(){var o=$(".project-photo:first").width();$(".project-photo").height(o),$(".project-photo").each(function(){var t=$(this).find("img");if(t.height()<t.width()){t.height(o);var h=t.width()-o;t.css("margin-left",-h/2)}else t.width(o)})};$(function(){set_project_photo_height(),$(window).resize(set_project_photo_height)});
