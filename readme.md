@@ -1,6 +1,6 @@
-# Freedom 1st Plant Your Project Microsite
+# Element FCU Photo Competition Microsite
 
-A small site created for Freedom 1st Credit Union for a home improvement project contest. Members can submit their information and a photo of their project to compete for a $250 bonus in addition to their home equity loan application.
+A small site created for Element Federal Credit Union for a home improvement project contest. Members can submit their information and a photo of their project to compete for a $250 bonus in addition to their home equity loan application.
 
 Developing in the open and deploying to Github Pages. Report bugs if you like but this project is mainly here to expose our development processes.
 
