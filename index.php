@@ -72,7 +72,7 @@
 					<a href="https://www.elementfcu.org/"><img src="img/logo.png"></a>
 				</div>
 				<div class="half address">
-					3418 MacCorkle Aveue, SE<br>
+					3418 MacCorkle Avenue SE<br>
 					Charleston, WV 25304<br>
 					<a href="tel:3047214145" class="phone">304.721.4145</a>
 				</div>
