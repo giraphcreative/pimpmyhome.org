@@ -25,5 +25,5 @@ if ( !empty( $files ) ) {
 		<?php
 	}
 } else {
-	print "<p>No projects have been submitted yet. Fill out the form above to submit your project!</p>";
+	print "<p>No projects to be approved. Wait for more to be submitted.</p>";
 }
