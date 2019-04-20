@@ -23,6 +23,10 @@ $orange: #EC5946;
 	max-width: 100%;
 }
 
+img {
+	max-width: 100%;
+}
+
 
 // background-container
 .container {
@@ -48,6 +52,7 @@ $orange: #EC5946;
 	img { @include img-max-width; }
 }
 
+
 .bg-yellow {
 	padding: 10px;
 	background: $yellow;
@@ -70,14 +75,12 @@ $orange: #EC5946;
 }
 
 
-
 header {
 	img {
 		display: block;
 		@include img-max-width;
 	}
 }
-
 
 
 .pad {
@@ -93,9 +96,9 @@ header {
 }
 
 
-
 .intro {
 	text-align: center;
+	padding: 0 0 30px 0;
 
 	h2 {
 		font-size: 2.4em;
@@ -106,21 +109,16 @@ header {
 	p {
 		font-size: 1.2em;
 	}
-
-	@include respond-to( 768px ) {
-		padding: 0 100px;
-	}
-
-	@include respond-to( 1024px ) {
-		padding: 0 200px;
-	}
 }
-
 
 
 // project styles
 .projects {
 	@include clearfix;
+	color: $blue;
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: bold;
 	
 	.third {
 		@include respond-to( 768px ) {
@@ -129,12 +127,29 @@ header {
 			}
 		}
 	}
+	
+	.vote-buttons {
+		padding: 10px 0 20px 0;
+		font-size: .8em;
+	}
+	
+	.error {
+		color: lighten( red, 20% );
+	}
+
+	.success {
+		color: $green;
+	}
 
 	.project-photo {
 		display: block;
 		height: 250px;
 		overflow: hidden;
-		margin-bottom: 10px; 
+		margin-bottom: 15px; 
+	}
+
+	a {
+		color: $blue;
 	}
 }
 
@@ -179,6 +194,11 @@ header {
 	.phone {
 		font-size: 1.4em;
 	}
+}
+
+
+.footer-social {
+	display: block;
 }
 
 

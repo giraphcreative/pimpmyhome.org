@@ -4,3 +4,4 @@ node_modules
 css/src/main-unprefixed.css
 submit.php
 project-*
+db-config.php

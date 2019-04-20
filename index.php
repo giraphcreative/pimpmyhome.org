@@ -13,7 +13,7 @@
 	<main class="container">
 		
 		<header>
-			<a href="/" target="_blank"><img src="img/header.jpg" class="header"></a>
+			<a href="/"><img src="img/header.jpg" class="header"></a>
 		</header>
 		
 		<div class="bg-green group pad">
@@ -38,7 +38,7 @@
 
 		<div class="bg-white pad projects" style="min-height: 400px;">
 			<div class="intro">
-				<h2>See The Projects</h2>
+				<h2>Vote For Your Favorite Project!</h2>
 			</div>
 			<?php
 			$files = array();
@@ -47,13 +47,15 @@
 			}
 			if ( !empty( $files ) ) {
 				foreach ( $files as $file ) {
+					$project_id = str_replace( 'project-info/', '', str_replace( '.txt', '', $file ) );
 					$image_url = str_replace( 'project-info/', 'project-photos/', str_replace( '.txt', '.jpg', $file ) );
 					?>
-			<div class="third">
-				<a href="<?php print $image_url; ?>">
-					<div class="project-photo"><img src="<?php print $image_url; ?>"></div>
-					<?php print file_get_contents( $file ); ?>
-				</a>
+			<div class="third project" rel="<?php print $project_id; ?>">
+				<div class="project-photo"><a href="<?php print $image_url; ?>"><img src="<?php print $image_url; ?>"></a></div>
+				<?php print file_get_contents( $file ); ?>
+				<div class="vote-buttons">
+					<button class="vote-button" rel="<?php print $project_id; ?>">Vote for me</button>
+				</div>
 			</div>
 					<?php
 				}
@@ -63,7 +65,8 @@
 			?>
 		</div>
 	
-		<a href="https://www.facebook.com/ElementFCU" target="_blank"><img src="img/footer-social.png"></a>
+		<a href="https://www.facebook.com/ElementFCU" target="_blank"><img src="img/footer-social.png" class="footer-social"></a>
+		<a href="https://www.elementfcu.org/" target="_blank"><img src="img/more-info.png" alt="Learn more about how our home equity products can help you get your DIY on." /></a>
 
 		<div class="footer-bar group">
 			<div class="wrap">

@@ -9,7 +9,7 @@ var set_project_photo_height = function(){
 	$('.project-photo').height( project_width );
 
 	// loop through all the project photos and set interior image heights.
-	$('.project-photo').each(function(){
+	$('.project').each(function(){
 		
 		// get photo img width
 		var $photo = $(this).find('img');
@@ -31,7 +31,6 @@ var set_project_photo_height = function(){
 		} else {
 			$photo.width( project_width );
 		}
-
 	});
 };
 
@@ -39,7 +38,26 @@ $(function(){
 
 	set_project_photo_height();
 
-	$(window).resize( set_project_photo_height );
+	$( window ).resize( set_project_photo_height );
+
+	$( 'button.vote-button' ).on( 'click', function(){
+
+		var $button = $( this );
+		var project_id = $( this ).attr( 'rel' );
+		$.ajax({
+			url: "vote.php?for="+project_id
+		}).done(function( data ) {
+			if ( data == 'failure:ip' ) {
+				$button.parent('.vote-buttons').html( '<div class="error">You may only vote for each <br>project once every 24 hours.</div>' );
+			} else if ( data == 'failure:vote' ) {
+				$button.parent('.vote-buttons').html( '<div class="error">Internal error.</div>' );
+			} else {
+				$button.parent('.vote-buttons').html( '<div class="success">Vote cast!</div>' );
+			}
+		});
+
+	});
+
 
 });
 

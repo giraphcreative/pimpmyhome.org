@@ -4,3 +4,6 @@
 [submodule "js/lib/shiv"]
 	path = js/lib/shiv
 	url = https://github.com/aFarkas/html5shiv.git
+[submodule "js/lib/magnific"]
+	path = js/lib/magnific
+	url = https://github.com/dimsemenov/Magnific-Popup.git
