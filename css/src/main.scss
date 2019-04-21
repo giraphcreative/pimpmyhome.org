@@ -18,6 +18,8 @@ $orange: #EC5946;
 
 @import "grid";
 
+@import "../js/lib/magnific/dist/magnific-popup.css";
+
 
 @mixin img-max-width {
 	max-width: 100%;

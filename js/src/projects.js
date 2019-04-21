@@ -58,6 +58,7 @@ $(function(){
 
 	});
 
+	$('.project a').magnificPopup({type:'image'});
 
 });
 
