@@ -25,7 +25,7 @@ if ( isset( $_REQUEST['approve'] ) ) {
 <body>
 	<main class="container admin group" style="padding: 30px;">
 		<div class="sixty">
-			<h3>Submissions</h3>
+			<h3>Submissions to Review</h3>
 		<?php
 
 		$files = array();
