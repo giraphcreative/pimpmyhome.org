@@ -204,7 +204,6 @@ header {
 }
 
 
-
 .fine-print {
 	padding: 40px 0 0;
 	font-size: .8em;
@@ -218,3 +217,29 @@ header {
 	}
 }
 
+
+
+// ADMIN STYLES
+
+.row {
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 2px solid #ddd;
+}
+
+.stats {
+	h3 {
+		border-bottom: 2px solid #ddd;
+		margin-bottom: 10px;
+	}
+
+	.sixty {
+		text-align: right;
+		color: #888;
+	}
+
+	.fourty {
+		text-align: left;
+		font-weight: bold;
+	}
+}
