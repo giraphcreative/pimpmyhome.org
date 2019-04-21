@@ -227,19 +227,21 @@ header {
 	border-bottom: 2px solid #ddd;
 }
 
-.stats {
+.admin {
 	h3 {
 		border-bottom: 2px solid #ddd;
 		margin-bottom: 10px;
 	}
 
-	.sixty {
-		text-align: right;
-		color: #888;
-	}
+	.stats {
+		.sixty {
+			text-align: right;
+			color: #888;
+		}
 
-	.fourty {
-		text-align: left;
-		font-weight: bold;
+		.fourty {
+			text-align: left;
+			font-weight: bold;
+		}
 	}
 }

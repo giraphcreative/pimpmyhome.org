@@ -25,6 +25,7 @@ if ( isset( $_REQUEST['approve'] ) ) {
 <body>
 	<main class="container admin group" style="padding: 30px;">
 		<div class="sixty">
+			<h3>Submissions</h3>
 		<?php
 
 		$files = array();
@@ -55,7 +56,7 @@ if ( isset( $_REQUEST['approve'] ) ) {
 
 			global $db;
 
-			$voted = $db->query( 'select distinct `vote_for`, count(*) as `count` from `vote` group by `vote_for`;' );
+			$voted = $db->query( 'select distinct `vote_for`, count(*) as `count` from `vote` group by `vote_for` order by `count` desc;' );
 			if ( !empty( $voted ) ) {				
 				foreach ( $voted as $vote ) {
 					?>
