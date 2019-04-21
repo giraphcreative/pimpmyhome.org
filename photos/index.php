@@ -40,7 +40,7 @@ if ( isset( $_REQUEST['approve'] ) ) {
 				?>
 			<div class="row">
 				<img src="<?php print $image_url; ?>">
-				<a href="./?approve=<?php print $time ?>">Approve</a>
+				<a href="./?approve=<?php print $time ?>">Approve Project</a>
 			</div>
 				<?php
 			}
