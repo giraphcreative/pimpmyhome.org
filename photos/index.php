@@ -5,8 +5,7 @@ require( '../functions.php' );
 
 if ( isset( $_REQUEST['approve'] ) ) {
 	$approve = $_REQUEST['approve'];
-	rename( '../project-info-temp/' . $approve . '.txt', '../project-info/' . $approve . '.txt' );
-	rename( '../project-photos-temp/' . $approve . '.jpg', '../project-photos/' . $approve . '.jpg' );
+	$db->update( "update `submissions` set `submission_status`='approved' where `submission_photo`='" . $approve . "';" );
 }
 
 
@@ -28,19 +27,13 @@ if ( isset( $_REQUEST['approve'] ) ) {
 			<h3>Submissions to Review</h3>
 		<?php
 
-		$files = array();
-		foreach ( glob( '../project-info-temp/*.txt' ) as $file ) {
-			$files[] = $file;
-		}
+		$files = get_pending_submissions();
 		if ( !empty( $files ) ) {
 			foreach ( $files as $file ) {
-				$info = $file;
-				$image_url = str_replace( 'project-info-temp/', 'project-photos-temp/', str_replace( '.txt', '.jpg', $file ) );
-				$time = str_replace( '../project-info-temp/', '', str_replace( '.txt', '', $info ) );
 				?>
 			<div class="row">
-				<img src="<?php print $image_url; ?>">
-				<a href="./?approve=<?php print $time ?>">Approve Project</a>
+				<img src="../project-photos/<?php print $file->submission_photo; ?>.jpg">
+				<a href="./?approve=<?php print $file->submission_photo ?>">Approve Project</a>
 			</div>
 				<?php
 			}

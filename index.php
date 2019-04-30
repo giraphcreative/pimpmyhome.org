@@ -1,4 +1,6 @@
-<!doctype html>
+<?php
+require('functions.php');
+?><!doctype html>
 <html lang="en-US" class="no-js">
 <head>
 	<meta charset="utf-8">
@@ -19,10 +21,12 @@
 		<div class="bg-green group pad">
 			<form name="upload" action="submit.php" method="post" enctype="multipart/form-data">
 			<div class="half">
-				<p><labal>Your Name
-					<input name="name" type="text" value="" /></labal></p>
+				<p><labal>First Name
+					<input name="name" type="text" value="" /></labal>
+					<span class="quiet">The name you enter here will be displayed on the project list below, only include what you'd like to be public.</span></p>
 				<p><labal>Project Name
-					<input name="project-name" type="text" value="" /></labal></p>
+					<input name="project-name" type="text" value="" /></labal>
+					<span class="quiet">The project name is displayed in the list below.</span></p>
 				<p><labal>Upload Photo<br>
 					<input name="photo" type="file" /></labal></p>
 			</div>
@@ -30,7 +34,8 @@
 				<p><labal>Email
 					<input name="email" type="text" value="" /></labal></p>
 				<p><labal>Phone
-					<input name="phone" type="text" value="" /></labal></p>
+					<input name="phone" type="text" value="" /></labal>
+					<span class="quiet">Your email and phone number are only used to get in touch with you, and will not be shared with third parties for any other purpose.</span></p>
 				<p><input type="submit" name="submit" value="Submit" /></p>
 			</div>
 			</form>
@@ -41,20 +46,22 @@
 				<h2>Vote For Your Favorite Project!</h2>
 			</div>
 			<?php
+			/*
 			$files = array();
 			foreach ( glob( 'project-info/*.txt' ) as $file ) {
 				$files[] = $file;
 			}
+			*/
+			$files = get_submissions();
 			if ( !empty( $files ) ) {
 				foreach ( $files as $file ) {
-					$project_id = str_replace( 'project-info/', '', str_replace( '.txt', '', $file ) );
-					$image_url = str_replace( 'project-info/', 'project-photos/', str_replace( '.txt', '.jpg', $file ) );
+					$image_url = 'project-photos/' . $file->submission_photo . '.jpg';
 					?>
-			<div class="third project" rel="<?php print $project_id; ?>">
+			<div class="third project" rel="<?php print $file->submission_photo; ?>">
 				<div class="project-photo"><a href="<?php print $image_url; ?>"><img src="<?php print $image_url; ?>"></a></div>
-				<?php print file_get_contents( $file ); ?>
+				<?php print $file->submission_name . ", " . $file->submission_project; ?>
 				<div class="vote-buttons">
-					<button class="vote-button" rel="<?php print $project_id; ?>">Vote for me</button>
+					<button class="vote-button" rel="<?php print $file->submission_photo; ?>">Vote for me</button>
 				</div>
 			</div>
 					<?php

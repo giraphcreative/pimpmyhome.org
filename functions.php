@@ -79,6 +79,19 @@ $db=new db;
 
 
 
+function get_submissions() {
+	global $db;
+	return $db->query( "select * from `submissions` where `submission_status`='approved' order by `submission_photo` desc;" );
+}
+
+
+
+function get_pending_submissions() {
+	global $db;
+	return $db->query( "select * from `submissions` where `submission_status`='pending' order by `submission_photo` desc;" );
+}
+
+
 
 
 function get_user_ip(){
