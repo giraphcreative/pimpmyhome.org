@@ -36,8 +36,6 @@ var set_project_photo_height = function(){
 
 $(function(){
 
-	set_project_photo_height();
-
 	$( window ).resize( set_project_photo_height );
 
 	$( 'button.vote-button' ).on( 'click', function(){
@@ -57,6 +55,10 @@ $(function(){
 		});
 
 	});
+
+	setTimeout(function(){
+		set_project_photo_height();
+	}, 2000)
 
 	$('.project a').magnificPopup({type:'image'});
 

@@ -149,7 +149,6 @@ function fix_images() {
 				imagejpeg( $image, $filename, 90 );
 	        }
 	    }
-
 	    closedir($handle);
 	}
 }
