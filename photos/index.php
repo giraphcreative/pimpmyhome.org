@@ -53,12 +53,14 @@ if ( isset( $_REQUEST['approve'] ) ) {
 			if ( !empty( $voted ) ) {				
 				foreach ( $voted as $vote ) {
 					$sub = $db->query_one( 'select * from `submissions` where `submission_photo`="' . $vote->vote_for . '";' );
+					if ( !empty( $sub ) ) {
 					?>
 				<div class="item">
 					<div class="sixty"><?php print $sub->submission_name ?>, <?php print $sub->submission_project ?></div>
 					<div class="fourty"><?php print $vote->count ?></div>
 				</div>
 					<?php
+					}
 				}
 			}
 
