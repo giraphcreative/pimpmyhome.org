@@ -123,3 +123,35 @@ function ip_ok( $for = '' ) {
 
 
 
+function fix_images() {
+	if ($handle = opendir('project-photos')) {
+	    while ( false !== ($entry = readdir($handle))) {
+	        if ($entry != "." && $entry != "..") {
+	            $filename = 'project-photos/' . $entry;
+				$exif = exif_read_data($filename );
+		 		$ort = ( isset( $exif['Orientation'] ) ? $exif['Orientation'] : '' ); 
+				$image = imagecreatefromjpeg( $filename );
+				if ( !empty( $ort ) ) {
+					switch ( $ort ) {
+						case 3:
+							$image = imagerotate( $image, 180, 0 );
+						break;
+
+						case 6:
+							$image = imagerotate( $image, -90, 0 );
+						break;
+
+						case 8:
+							$image = imagerotate( $image, 90, 0 );
+						break;
+					}
+				}
+				imagejpeg( $image, $filename, 90 );
+	        }
+	    }
+
+	    closedir($handle);
+	}
+}
+
+
