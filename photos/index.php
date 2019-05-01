@@ -23,7 +23,7 @@ if ( isset( $_REQUEST['approve'] ) ) {
 </head>
 <body>
 	<main class="container admin group" style="padding: 30px;">
-		<div class="sixty">
+		<div class="half">
 			<h3>Submissions to Review</h3>
 		<?php
 
@@ -43,7 +43,7 @@ if ( isset( $_REQUEST['approve'] ) ) {
 
 		?>
 		</div>
-		<div class="fourty stats text-center">
+		<div class="half stats text-center">
 			<h3>Vote Totals</h3>
 			<?php 
 
