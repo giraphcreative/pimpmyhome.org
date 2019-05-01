@@ -52,9 +52,10 @@ if ( isset( $_REQUEST['approve'] ) ) {
 			$voted = $db->query( 'select distinct `vote_for`, count(*) as `count` from `vote` group by `vote_for` order by `count` desc;' );
 			if ( !empty( $voted ) ) {				
 				foreach ( $voted as $vote ) {
+					$sub = $db->query_one( 'select * from `submissions` where `submission_photo`="' . $vote->vote_for . '";' );
 					?>
 				<div class="item">
-					<div class="sixty"><?php print file_get_contents( '../project-info/' . $vote->vote_for . ".txt" ) ?></div>
+					<div class="sixty"><?php print $sub->submission_name ?>, <?php print $sub->submission_project ?></div>
 					<div class="fourty"><?php print $vote->count ?></div>
 				</div>
 					<?php

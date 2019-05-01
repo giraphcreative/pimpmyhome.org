@@ -247,13 +247,18 @@ header {
 
 	.stats {
 		.sixty {
+			float: left;
 			text-align: right;
 			color: #888;
+			width: 58%;
+			margin: 0 2%;
 		}
 
 		.fourty {
+			float: left;
 			text-align: left;
 			font-weight: bold;
+			width: 38%;
 		}
 	}
 }
