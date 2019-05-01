@@ -142,7 +142,7 @@ header {
 		margin-bottom: 15px; 
 	}
 
-	.project {
+	.third.project {
 		&:nth-child(3), &:nth-child(6), &:nth-child(9), &:nth-child(12), &:nth-child(15), &:nth-child(18), &:nth-child(21), &:nth-child(24) {
 			@include respond-to( 768px ) {
 				clear: left;
