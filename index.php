@@ -18,7 +18,10 @@ require('functions.php');
 			<a href="/"><img src="img/header.jpg" class="header"></a>
 		</header>
 		
-		<div class="bg-green group pad">
+		<div class="bg-green group pad text-center">
+			<h1>Contest Ended</h1>
+			<p>Voting and project submissions have ended for this contest - a big thanks to all who participated!</p>
+			<!--
 			<form name="upload" action="submit.php" method="post" enctype="multipart/form-data">
 			<div class="half">
 				<p><labal>First Name
@@ -39,6 +42,7 @@ require('functions.php');
 				<p><input type="submit" name="submit" value="Submit" /></p>
 			</div>
 			</form>
+			-->
 		</div>
 
 		<div class="bg-white pad projects" style="min-height: 400px;">
@@ -60,9 +64,11 @@ require('functions.php');
 			<div class="third project" rel="<?php print $file->submission_photo; ?>">
 				<div class="project-photo"><a href="<?php print $image_url; ?>"><img src="<?php print $image_url; ?>"></a></div>
 				<?php print $file->submission_name . ", " . $file->submission_project; ?>
+				<!--
 				<div class="vote-buttons">
 					<button class="vote-button" rel="<?php print $file->submission_photo; ?>">Vote for me</button>
 				</div>
+				-->
 			</div>
 					<?php
 				}
