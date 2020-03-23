@@ -12,16 +12,14 @@ class db {
 	public $show_errors=true;
 
 	function db() {
-		$this->cn=@mysql_connect( DB_HOST, DB_USER, DB_PASS);
-		mysql_select_db( DB_NAME );
+		$this->cn=@mysqli_connect( DB_HOST, DB_USER, DB_PASS);
+		mysqli_select_db( $this->cn, DB_NAME );
 	}
 
 	function query( $query ) {
-		$select=mysql_query( $query,$this->cn );
-		if ( is_resource( $select ) ) {
-			while ( $rowselect=mysql_fetch_object( $select ) ) {
-				$results[]=$rowselect;
-			}
+		$select=mysqli_query( $this->cn,$query );
+		while ( $rowselect=mysqli_fetch_object( $select ) ) {
+			$results[]=$rowselect;
 		}
 		if ( !empty( $results ) ) {
 			return $results;
@@ -32,11 +30,9 @@ class db {
 	}
 
 	function query_one( $query ) {
-		$select=mysql_query( $query,$this->cn );
-		if ( is_resource( $select ) ) {
-			while ( $rowselect=mysql_fetch_object( $select ) ) {
-				$results[]=$rowselect;
-			}
+		$select=mysqli_query( $this->cn,$query );
+		while ( $rowselect=mysqli_fetch_object( $select ) ) {
+			$results[]=$rowselect;
 		}
 		if ( !empty( $results ) ) {
 			return $results[0];
@@ -47,7 +43,7 @@ class db {
 	}
 
 	function update( $query ) {
-		$update=mysql_query( $query, $this->cn );
+		$update=mysqli_query( $this->cn,$query );
 		if ( $update ) {
 			return true;
 		} else {
@@ -57,9 +53,9 @@ class db {
 	}
 
 	function insert( $query ) {
-		$update=mysql_query( $query, $this->cn );
+		$update=mysqli_query( $this->cn, $query );
 		if ( $update ) {
-			return mysql_insert_id();
+			return mysqli_insert_id( $this->cn );
 		} else {
 			$this->handle_error();
 			return false;
@@ -67,15 +63,22 @@ class db {
 	}
 
 	function handle_error() {
-		$error=mysql_error();
+		$error=mysqli_error( $this->cn );
 		if ( !empty( $error ) && $this->show_errors ) {
 			print $error;
 			die;
 		}
 	}
 
+	function escape( $string ) {
+		return mysqli_real_escape_string( $this->cn, $string );
+	}
+
 }
-$db=new db;
+
+
+global $db;
+$db=new db();
 
 
 
